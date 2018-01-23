@@ -30,8 +30,9 @@ function displayPoliInfo() {
 			//creating a paragraph tag with result of politician nam
 			var p = $("<p>").text("Your representative's name: " + poliName);
 
-			
+		$("#poli-info-here").prepend(poliDiv);
 
 
 		}
-		})
+	});
+}
