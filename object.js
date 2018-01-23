@@ -260,7 +260,8 @@ var results = {
   }
  ]
 }
-
+var betterKeyWords = { "deputyHeadOfGovernment": "Vice-President", "headOfState": "Executive Branch", "legislatorUpperBody": "Senator",
+"legislatorLowerBody": "Representative", "Democratic": "Democrat"};
 var office;
 var politician;
 var politicians = [];
@@ -276,24 +277,22 @@ Object.keys(results.offices).forEach(function(key,index){
 	
 });
 
-var betterKeyWords = { deputyHeadOfGovernment: "Vice-President", headOfState: "Executive Branch", legislatorUpperBody: "Senator",
-legislatorLowerBody: "Representative", Democratic: "Democrat"}
-
 
 function Politician(office,official){
 
 	this.name = official.name;
-	if (betterKeyWords[office.roles[0]])
+	if (betterKeyWords.hasOwnProperty(office.roles[0]))
 	{
 		this.role = betterKeyWords[office.roles[0]];
 	}
 	else
 	{	
+	    alert("else!");
 	    this.role = office.roles[0];
 	}
 	this.image = official.photoUrl;
 	this.web = official.urls;
-	if (betterKeyWords[official.party]){
+	if (official.party in betterKeyWords){
         this.party = betterKeyWords[official.party];
 	}
 	else {
