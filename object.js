@@ -260,7 +260,7 @@ var results = {
   }
  ]
 }
-var betterKeyWords = { "deputyHeadOfGovernment": "Vice-President", "headOfState": "Executive Branch", "legislatorUpperBody": "Senator",
+var betterKeyWords = { "deputyHeadOfGovernment": "Vice-President", "headOfState": "President", "legislatorUpperBody": "Senator",
 "legislatorLowerBody": "Representative", "Democratic": "Democrat"};
 var office;
 var politician;
@@ -281,107 +281,93 @@ Object.keys(results.offices).forEach(function(key,index){
 function Politician(office,official){
 
 	this.name = official.name;
-	// if (betterKeyWords.hasOwnProperty(office.roles[0]))
-	// {
-	// 	this.role = betterKeyWords[office.roles[0]];
-	// }
-	// else
-	// {	
-	//     alert("else!");
-	    this.role = office.roles[0];
-	// }
+	if (betterKeyWords.hasOwnProperty(office.roles[0]))
+	{
+     this.role = betterKeyWords[office.roles[0]];
+	}
+	else
+	{	
+	   this.role = office.roles[0];
+	}
 	this.image = official.photoUrl;
 	this.web = official.urls;
-	// if (official.party in betterKeyWords){
- //        this.party = betterKeyWords[official.party];
-	// }
-	// else {
+	if (official.party in betterKeyWords){
+      this.party = betterKeyWords[official.party];
+	}
+	else {
 	    this.party = official.party;
-    //}    
+  }    
 	if (official.emails)
 	{
 	    this.email = official.emails[0];
-    }
-    else
-    {
+  }
+  else
+  {
     	this.email = 0;
-    }
+  }
 	this.address = official.address[0];
 	this.phones = official.phones[0];
 	this.location = office.name;
 }
-// var politician;   
-// function createList(results){
-//     var politicians = [];
-//     var politician;
 
-
-//     for (var i=0; i<results.offices.length; i++)
-//     {
-//     	for (j=0; j<results.offices[i].)
-//     	politician = new Politician(results.officials[i],results.offices[i]);
-//     	politicians.push(politician);
-//     	console.log(politician);
-//     }
-
-    Politician.prototype.getNumber = function(){
-	//parses district name to find number
-	var result="";
-	var character;
-	var district = this.location;
-	for (var i=0;i<district.length;i++)
-	{
-        character=district[i];
+Politician.prototype.getNumber = function(){
+//parses district name to find number
+var result="";
+var character;
+var district = this.location;
+for (var i=0;i<district.length;i++)
+{
+    character=district[i];
         if (!isNaN(character))
         {
         	result += character;
         }
 	}
 	return result;
-    };
+};
     
-    Politician.prototype.makeHTML = function(){
-	//returns a string with the html for a specific politician
-	var result = "<div class='row'>";
-	var number = this.getNumber();
-	result+= "<div class='col-3-md'> <img src='"+this.image+"' alt = '"+this.name+"'>";
-	result+= "</div> <div class='col-6-md'> <table class = 'table'><tr><th>Contact</th><th>District</th><th>Affiliation</th></tr>";
-	result+= "<tr><td>"+this.name+"</td><td>"+this.location+"</td><td>"+this.party+"</td></tr>";
-	result+= "<tr><td><a href='"+this.web+"'>"+this.web+"</a></td><td>"+this.address.line1+"</td><th>Role</th></tr>";
+Politician.prototype.makeHTML = function(){
+//returns a string with the html for a specific politician
+var result = "<div class='row'>";
+var number = this.getNumber();
+result+= "<div class='col-3-md'> <img src='"+this.image+"' alt = '"+this.name+"'>";
+result+= "</div> <div class='col-6-md'> <table class = 'table'><tr><th>Contact</th><th>District</th><th>Affiliation</th></tr>";
+result+= "<tr><td>"+this.name+"</td><td>"+this.location+"</td><td>"+this.party+"</td></tr>";
+result+= "<tr><td><a href='"+this.web+"'>"+this.web+"</a></td><td>"+this.address.line1+"</td><th>Role</th></tr>";
 	if (this.email)
 	{
 	    result+= "<tr><td><a href='mailto:"+this.email+"' target='none'>"+this.email+"</a></td>";
-	     if (this.address.line2)
-        {
-            result+= "<td>"+this.address.line2+"</td><td>"+this.role+"</td></tr>";
-            result+= "<tr><td>"+this.phones+"</td><td>"+this.address.city+", "+this.address.state+" "+this.address.zip+"</td><td></td></tr>";
-        }
+	    if (this.address.line2)
+      {
+          result+= "<td>"+this.address.line2+"</td><td>"+this.role+"</td></tr>";
+          result+= "<tr><td>"+this.phones+"</td><td>"+this.address.city+", "+this.address.state+" "+this.address.zip+"</td><td></td></tr>";
+      }
 
-        else
-        {
+      else
+      {
     	   result+="<td>"+this.address.city+", "+this.address.state+" "+this.address.zip+"</td><td>"+this.role+"</td></tr>";
-        } 
-    }
-    else
-    {
-        result+= "<tr><td>" + this.phones+"</td>";
-         if (this.address.line2)
-        {
-            result+= "<td>"+this.address.line2+"</td><td>"+this.role+"</td></tr>";
-            result+= "<tr><td></td><td>"+this.address.city+", "+this.address.state+" "+this.address.zip+"</td><td></td></tr>";
-        }
+      } 
+  }
+  else
+  {
+      result+= "<tr><td>" + this.phones+"</td>";
+      if (this.address.line2)
+      {
+          result+= "<td>"+this.address.line2+"</td><td>"+this.role+"</td></tr>";
+          result+= "<tr><td></td><td>"+this.address.city+", "+this.address.state+" "+this.address.zip+"</td><td></td></tr>";
+      }
 
-        else
-        {
-    	   result+="<td>"+this.address.city+", "+this.address.state+" "+this.address.zip+"</td><td></td></tr>";
-        } 
+      else
+      {
+    	    result+="<td>"+this.address.city+", "+this.address.state+" "+this.address.zip+"</td><td></td></tr>";
+      } 
     }
 
-    result+= "</table></div><div class='col-3-md'>";
+  result+= "</table></div><div class='col-3-md'>";
 	result+= "<iframe frameborder='0' scrolling='no' width='90%' marginheight='0' marginwidth='0'src='https://www.govtrack.us/congress/members/embed/mapframe?state=il&district=";
 	result+= number+"'></iframe></div></div>";
     return result;
-    };
+};
     
 
 //     return politicians;
