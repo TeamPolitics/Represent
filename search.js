@@ -44,11 +44,12 @@ function displayPoliInfo() {
 			console.log(response);
 
 		//storing the data from AJAX request in the results variable
-		var results = response.data;
+		var results = response;
         
         Object.keys(results.offices).forEach(function(key,index){
 
 	    office = results.offices[key];
+	    console.log(office);
         for (i=0; i<office.officialIndices.length; i++)
         {
             var index = office.officialIndices[i];
