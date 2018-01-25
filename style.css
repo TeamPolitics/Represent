@@ -1,3 +1,13 @@
+
+img {
+	width: 20vw;
+}
+
+table {
+	position: relative;
+	width: 90%;
+}
+=======
 .jumbotron{
     margin-top: 40px;
 };
@@ -5,3 +15,4 @@
 h1 {
     font-family: "helvetical", "sans-serif", "georgia";
 };
+
