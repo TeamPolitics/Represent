@@ -281,23 +281,23 @@ Object.keys(results.offices).forEach(function(key,index){
 function Politician(office,official){
 
 	this.name = official.name;
-	if (betterKeyWords.hasOwnProperty(office.roles[0]))
-	{
-		this.role = betterKeyWords[office.roles[0]];
-	}
-	else
-	{	
-	    alert("else!");
+	// if (betterKeyWords.hasOwnProperty(office.roles[0]))
+	// {
+	// 	this.role = betterKeyWords[office.roles[0]];
+	// }
+	// else
+	// {	
+	//     alert("else!");
 	    this.role = office.roles[0];
-	}
+	// }
 	this.image = official.photoUrl;
 	this.web = official.urls;
-	if (official.party in betterKeyWords){
-        this.party = betterKeyWords[official.party];
-	}
-	else {
+	// if (official.party in betterKeyWords){
+ //        this.party = betterKeyWords[official.party];
+	// }
+	// else {
 	    this.party = official.party;
-    }    
+    //}    
 	if (official.emails)
 	{
 	    this.email = official.emails[0];
