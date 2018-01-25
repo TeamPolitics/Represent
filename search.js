@@ -2,15 +2,15 @@ var addressInputG = "3040d"
 //variable to store API from google civics
 var APIKeyG = "AIzaSyCuDsqDKUFb1QUNBy7-KughoBsoU7RkYRo";
 //queryUrl using address
-var queryURLG = "https://maps.googleapis.com/maps/api/geocode/json?key=" + APIKey + "&address=" + addressInputG;
+var queryURLG = "https://maps.googleapis.com/maps/api/geocode/json?key=" + APIKeyG + "&address=" + addressInputG;
 
 	$.ajax({
-		url: queryURL,
+		url: queryURLG,
 		method: "GET"
 	})
 	//after data returns from request
 	.then(function(response) {
-			console.log(queryURL);
+			console.log(queryURLG);
 			console.log(response);
 		//if response.status === zero_results push to div
 		if (response.status === "ZERO_RESULTS") {
@@ -20,7 +20,7 @@ var queryURLG = "https://maps.googleapis.com/maps/api/geocode/json?key=" + APIKe
 			var location = response.results[0].geometry;
 			console.log(location);
 		}
-	}
+	});
 
 
 
@@ -29,18 +29,18 @@ var addressInput = "60202";
 //variable to store API from google civics
 var APIKeyP = "AIzaSyB0nuZo-jOlCHEFS6UB15CYoc0koH2nm8o";
 //queryUrl using address
-var queryURLP = "https://www.googleapis.com/civicinfo/v2/representatives?key=" + APIKey + "&address=" + addressInput;
+var queryURLP = "https://www.googleapis.com/civicinfo/v2/representatives?key=" + APIKeyP + "&address=" + addressInput;
 
 //Function to display info from Google Civic API
 function displayPoliInfo() {
 	//Performing an AJAX request with queryURL
 	$.ajax({
-		url: queryURL,
+		url: queryURLP,
 		method: "GET"
 	})
 		//after data returns from request
 		.then(function(response) {
-			console.log(queryURL);
+			console.log(queryURLP);
 			console.log(response);
 
 		//storing the data from AJAX request in the results variable
