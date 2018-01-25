@@ -17,7 +17,9 @@ var queryURLG = "https://maps.googleapis.com/maps/api/geocode/json?key=" + APIKe
 			$("#geo-error").text("Please reenter your zipcode")
 		//return formatted address
 		} else {
-			var location = 
+			var location = response.results[0].geometry;
+			console.log(location);
+			alert("it's working")
 		}
 	}
 
