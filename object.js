@@ -380,7 +380,7 @@ var delay = setTimeout(function() {
 	alert("ding!");
 	for (var i = 0; i<politicians.length; i++)
     {
-   	    $("#content").append(politicians[i].makeHTML());
+   	    $("#poli-info-here").append(politicians[i].makeHTML());
     }   
 }, 5000);
 
