@@ -1,6 +1,7 @@
-var addressInputG = "3040d"
+var addressInputG = "60202"
 //variable to store API from google civics
 var APIKeyG = "AIzaSyCuDsqDKUFb1QUNBy7-KughoBsoU7RkYRo";
+var geo;
 //queryUrl using address
 var queryURLG = "https://maps.googleapis.com/maps/api/geocode/json?key=" + APIKeyG + "&address=" + addressInputG;
 
@@ -17,8 +18,8 @@ var queryURLG = "https://maps.googleapis.com/maps/api/geocode/json?key=" + APIKe
 			$("#geo-error").text("Please reenter your zipcode")
 		//return formatted address
 		} else {
-			var location = response.results[0].geometry;
-			console.log(location);
+			geo = response.results[0];
+			console.log(geo);
 		}
 	});
 
@@ -45,17 +46,16 @@ function displayPoliInfo() {
 
 		//storing the data from AJAX request in the results variable
 		var results = response;
-        
         Object.keys(results.offices).forEach(function(key,index){
 
 	    office = results.offices[key];
 	    console.log(office);
         for (i=0; i<office.officialIndices.length; i++)
         {
-            var index = office.officialIndices[i];
-            politician = new Politician(office,results.officials[index]);
+            var num = office.officialIndices[i];
+            politician = new Politician(office,results.officials[num]);
             politicians.push(politician);
-            $("#poli-info-here").append(politician.makeHTML());
+            $(".single-item").append(politician.makeHTML(geo));
         }
 	    });
 

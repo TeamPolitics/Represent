@@ -9,14 +9,14 @@ var politicians = [];
 function Politician(office,official){
 
 	this.name = official.name;
-	if (betterKeyWords.hasOwnProperty(office.roles[0]))
-	{
-     this.role = betterKeyWords[office.roles[0]];
-	}
-	else
-	{	
+	// if (betterKeyWords.hasOwnProperty(office.roles[0]))
+	// {
+ //     this.role = betterKeyWords[office.roles[0]];
+	// }
+	// else
+	// {	
 	   this.role = office.roles[0];
-	}
+	// }
 	this.image = official.photoUrl;
 	this.web = official.urls;
 	if (official.party in betterKeyWords){
@@ -54,7 +54,7 @@ for (var i=0;i<district.length;i++)
 	return result;
 };
     
-Politician.prototype.makeHTML = function(){
+Politician.prototype.makeHTML = function(geo){
 //returns a string with the html for a specific politician
 var result = "<div class='row'>";
 var number = this.getNumber();
@@ -92,8 +92,11 @@ result+= "<tr><td><a href='"+this.web+"'>"+this.web+"</a></td><td>"+this.address
     }
 
     result+= "</table></div><div class='col-3-md'>";
-	result+= "<iframe frameborder='0' scrolling='no' width='90%' marginheight='0' marginwidth='0'src='https://www.govtrack.us/congress/members/embed/mapframe?state=il&district=";
-	result+= number+"'></iframe></div></div>";
-    return result;
+	result+= "<iframe frameborder='0' scrolling='no' width='90%' marginheight='0' marginwidth='0'src='https://www.govtrack.us/congress/members/";
+	result+= "embed/mapframe?state="+this.address.state+"&district="+number;
+	result+= "'></iframe></div></div>";
+	console.log(geo);
+	console.log(geo.address_components[0].long_name);
+	return result;
 };
 
