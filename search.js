@@ -19,7 +19,6 @@ var queryURLG = "https://maps.googleapis.com/maps/api/geocode/json?key=" + APIKe
 		} else {
 			var location = response.results[0].geometry;
 			console.log(location);
-			alert("it's working")
 		}
 	}
 
@@ -46,23 +45,18 @@ function displayPoliInfo() {
 
 		//storing the data from AJAX request in the results variable
 		var results = response.data;
+        
+        Object.keys(results.offices).forEach(function(key,index){
 
-		//Looking through the result of each item
-		for (var i = 0; i < results.length; i++) {
-			
-			//creating and storing a div tag
-			var poliDiv = $("<div>");
-
-			//creating a variable tag to hold politician name
-			var poliName = results[i].officials.name;
-
-			//creating a paragraph tag with result of politician nam
-			var p = $("<p>").text("Your representative's name: " + poliName);
-
-		$("#poli-info-here").prepend(poliDiv);
-
-
-		}
+	    office = results.offices[key];
+        for (i=0; i<office.officialIndices.length; i++)
+        {
+            var index = office.officialIndices[i];
+            politician = new Politician(office,results.officials[index]);
+            politicians.push(politician);
+            $("#poli-info-here").append(politician.makeHTML());
+        }
+	    });
 
 	}, function(error){
 		console.log(JSON.parse(error.responseText))

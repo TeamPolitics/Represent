@@ -5,18 +5,6 @@ var office;
 var politician;
 var politicians = [];
 
-Object.keys(results.offices).forEach(function(key,index){
-
-	office = results.offices[key];
-    for (i=0; i<office.officialIndices.length; i++)
-    {
-         var index = office.officialIndices[i];
-         politician = new Politician(office,results.officials[index]);
-         politicians.push(politician);
-    }
-	
-});
-
 
 function Politician(office,official){
 
@@ -103,23 +91,9 @@ result+= "<tr><td><a href='"+this.web+"'>"+this.web+"</a></td><td>"+this.address
       } 
     }
 
-  result+= "</table></div><div class='col-3-md'>";
+    result+= "</table></div><div class='col-3-md'>";
 	result+= "<iframe frameborder='0' scrolling='no' width='90%' marginheight='0' marginwidth='0'src='https://www.govtrack.us/congress/members/embed/mapframe?state=il&district=";
 	result+= number+"'></iframe></div></div>";
     return result;
 };
-    
-
-
-
-
-
-var delay = setTimeout(function() {
-	alert("ding!");
-	for (var i = 0; i<politicians.length; i++)
-    {
-   	    $("#poli-info-here").append(politicians[i].makeHTML());
-    }   
-}, 5000);
-
 
