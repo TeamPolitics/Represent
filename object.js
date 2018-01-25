@@ -260,11 +260,13 @@ var results = {
   }
  ]
 }
+
 var betterKeyWords = { "deputyHeadOfGovernment": "Vice-President", "headOfState": "President", "legislatorUpperBody": "Senator",
 "legislatorLowerBody": "Representative", "Democratic": "Democrat"};
 var office;
 var politician;
 var politicians = [];
+
 Object.keys(results.offices).forEach(function(key,index){
 
 	office = results.offices[key];
@@ -370,8 +372,6 @@ result+= "<tr><td><a href='"+this.web+"'>"+this.web+"</a></td><td>"+this.address
 };
     
 
-//     return politicians;
-// }
 
 
 
