@@ -1,9 +1,13 @@
+
 $("button").on("click", function(event){
 
 event.preventDefault();
 var addressInputG = $("#input").val().trim();
 var addressInput = addressInputG;
 //variable to store API from google civics
+
+//variable to store API from google geo
+
 var APIKeyG = "AIzaSyCuDsqDKUFb1QUNBy7-KughoBsoU7RkYRo";
 var geo;
 //queryUrl using address
@@ -69,6 +73,8 @@ function displayPoliInfo() {
 		;
 	});
 }
+
 displayPoliInfo();
 $("#input").text("");
 });
+
