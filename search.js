@@ -1,5 +1,5 @@
 var addressInputG = "60202"
-//variable to store API from google civics
+//variable to store API from google geo
 var APIKeyG = "AIzaSyCuDsqDKUFb1QUNBy7-KughoBsoU7RkYRo";
 var geo;
 //queryUrl using address
