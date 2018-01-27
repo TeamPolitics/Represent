@@ -8,24 +8,56 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="style.css">
-    <link href='https://fonts.googleapis.com/css?family=Tangerine' rel='stylesheet'>
+    <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
     <title>Hello, world!</title>
   </head>
   <body>
     <div class="container">
-        <div class="jumbotron jumbotron-fluid">
-            <div class="container">
-                <h1 class="display-4">Represent</h1>
-                <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+      <div class="row">
+        <div class="col-12">
+            <div class="jumbotron jumbotron-fluid bg-danger">
+                <div class="container">
+                    <h1 class="display-4">Represent</h1>
+                    <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+                </div>
             </div>
         </div>
-        <input class="form-control form-control-lg" type="text" placeholder="Readonly input here…" readonly>
+      </div>
+      <div class="row">
+        <div class="col-12">
+            <input id="input" class="form-control form-control-lg" type="text" placeholder="example: 633 Clark St, Evanston, IL 60208">
+        </div>
+      </div>  
+        
         <button class="btn btn-primary" type="submit">Submit</button>
+
+       <div class="row">
+         <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                  <h3>Your Representatives</h3>
+                </div>
+                <div class="card-body">
+                  <div class="single-item">
+                </div>
+                   
+                </div>
+              </div>
+         </div>
+       </div> 
     </div>
-    <div id="poli-info-here"></div>
+      
+    </div>
+    
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="Script.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> -->
+    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="slick/slick.js"></script>
+    <script src="object.js"></script>
+    <script src="Search.js"></script>
   </body>
 </html>
