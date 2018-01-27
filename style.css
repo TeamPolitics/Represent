@@ -34,3 +34,14 @@ table {
 	position: relative;
 	width: 90%;
 }
+
+tbody {
+    display: inline-block;
+    width: 40%;
+    font-size: 10px;
+    margin-left: 15%;
+    margin-top: -20%;
+}
+img {
+    width: 10vw;
+}
