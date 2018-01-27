@@ -54,8 +54,9 @@ function displayPoliInfo() {
 
 		//storing the data from AJAX request in the results variable
 		var results = response;
+		var slideIndex = 0;
         Object.keys(results.offices).forEach(function(key,index){
-
+        
 	    office = results.offices[key];
 	    console.log(office);
         for (i=0; i<office.officialIndices.length; i++)
@@ -65,8 +66,15 @@ function displayPoliInfo() {
             politician = new Politician(office,results.officials[num],num);
             politicians.push(politician);
             $(".single-item").append(politician.makeHTML());
+
+            
         }
 	    });
+	     $('.single-item').slick({
+               slidesToShow: 1,
+               slidesToScroll: 1,
+               slide: "div .row"
+            });
 
 	}, function(error){
 		console.log(JSON.parse(error.responseText))

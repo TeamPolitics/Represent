@@ -15,8 +15,15 @@ function Politician(office,official,num){
 	// }
 	// else
 	// {	
+  if (office.roles)
+  {  
 	   this.role = office.roles[0];
-	// }
+	}
+  else
+  {
+      this.role = 0;
+  }
+  // }
 	this.image = official.photoUrl;
 	this.web = official.urls;
 	if (official.party in betterKeyWords){
@@ -33,8 +40,18 @@ function Politician(office,official,num){
   {
     	this.email = 0;
   }
-	this.address = official.address[0];
-	this.phones = official.phones[0];
+	if (official.address)
+  {
+      this.address = official.address[0];
+  }
+  else
+  {
+      this.address = 0;
+  }
+	if (official.phones)
+  {
+  this.phones = official.phones[0];
+  }
 	this.location = office.name;
   this.index = num;
 }
