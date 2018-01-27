@@ -52,30 +52,30 @@ function Politician(office,official,num){
   {
   this.phones = official.phones[0];
   }
-	this.location = office.name;
-  this.index = num;
+	
+  this.location = office.name;
 }
 
-Politician.prototype.getNumber = function(){
-//parses district name to find number
-var result="";
-var character;
-var district = this.location;
-for (var i=0;i<district.length;i++)
-{
-    character=district[i];
-        if (!isNaN(character))
-        {
-        	result += character;
-        }
-	}
-	return result;
-};
+// Politician.prototype.getNumber = function(){
+// //parses district name to find number
+// var result="";
+// var character;
+// var district = this.location;
+// for (var i=0;i<district.length;i++)
+// {
+//     character=district[i];
+//         if (!isNaN(character))
+//         {
+//         	result += character;
+//         }
+// 	}
+// 	return result;
+// };
     
 Politician.prototype.makeHTML = function(){
 //returns a string with the html for a specific politician
-var result = "<div class='row' id ='"+this.index+"'>";
-var number = this.getNumber();
+var result = "<div class='row'>";
+// var number = this.getNumber();
 result+= "<div class='col-3-md'> <img src='"+this.image+"' alt = '"+this.name+"'>";
 result+= "</div> <div class='col-6-md'> <table class = 'table'><tr><th>Contact</th><th>District</th><th>Affiliation</th></tr>";
 result+= "<tr><td>"+this.name+"</td><td>"+this.location+"</td><td>"+this.party+"</td></tr>";
@@ -110,11 +110,27 @@ result+= "<tr><td><a href='"+this.web+"'>"+this.web+"</a></td><td>"+this.address
     }
  //  var coordinates = geo.geometry.location.lat+","+geo.geometry.location.lng
  //  result+= "</table></div><div class='col-3-md'>";
-	// result+="<img src='https://maps.googleapis.com/maps/api/staticmap?center="+coordinates;
- //  result+="&markers=color:blue%7C"+coordinates+"&zoom=20&size=400x400&key=AIzaSyDNqjj1HtNHg4hB7cHnbE_ki-ejJnz9Vwo'></div></div>";
  //  //https://maps.googleapis.com/maps/api/staticmap?center=40.714728,-73.998672&zoom=12&size=400x400&key=YOUR_API_KEY
 	// console.log(geo);
 	// console.log(geo.address_components[0].long_name);
+	var address = this.address;
+	var formattedAddress="";
+	console.log(this.address);
+	if (address)
+	{
+        Object.keys(address).forEach(function(key)
+        {   
+        	var split = address[key].split(" ");
+        	split = split.join("+");
+    	    formattedAddress += (split + ",");
+        });
+	    console.log(formattedAddress);
+	    formattedAddress = formattedAddress.slice(0,-1);
+    }
+
+    result+="<img src='https://maps.googleapis.com/maps/api/staticmap?center="+formattedAddress;
+    result+="&markers=color:blue%7C"+formattedAddress+"&zoom=16&size=400x400&key=AIzaSyDNqjj1HtNHg4hB7cHnbE_ki-ejJnz9Vwo'></div></div>";
 	return result;
+
 };
 
