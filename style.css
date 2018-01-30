@@ -1,6 +1,35 @@
-.jumbotron{
-    margin-top: 40px;
+tbody {
+    display: inline-block;
+    width: 70%;
+    font-size: 15px;
+    margin-left: 25%;
+    margin-top: -29%;
+    border-style: solid;
+    border-width: 1%;
+    border-color: #7f7f7f;
 }
+
+.display-4 {
+    font-family: "Amatic SC";
+   color: #000080;
+   font-size: 500%;
+   font-weight: bold;
+   width: 50%;
+   margin-left: 25%;
+    border-radius: 60%;
+    background-image: url("https://c1.staticflickr.com/3/2939/32250580584_23e4cb54d8_b.jpg");
+    background-size: cover;
+}
+
+.jumbotron {
+    margin-top: 3%;
+    font-family: "Monoton";
+    text-align: center;
+    background-image: url("https://images-na.ssl-images-amazon.com/images/I/81z7y3C0YDL._SL1500_.jpg");
+
+ background-size: cover;
+    opacity: 0.9;
+ }
 
 body{background-color: #993feeb0;}
 
@@ -10,18 +39,24 @@ body{background-color: #993feeb0;}
     
 }
 
-h1, h3, p {
-    font-family: 'Kaushan Script', cursive;
-    text-align: center;
-}
 
 
 img {
-	width: 20vw;
+    width: 18vw;
+    margin-left: 2%;
 }
 
-table {
-	position: relative;
-	width: 90%;
+
+
+
+.col-3-md {
+    margin-top: 5%;
 }
-=======
+
+.single-item {
+    margin-top: 1%;
+}
+
+.btn-primary {
+    margin-top: 2%; 
+}
