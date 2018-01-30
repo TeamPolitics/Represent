@@ -1,11 +1,13 @@
-var addressInputG = "60202"
+//on click event for submit button
+$("button").on("click", function(event){
 
-	if (isNaN(addressInputG)
-		|| addressInputG.length != 5) {
-		alert("Please enter a valid zipcode!")
-	}
-//variable to store API from google civics
+event.preventDefault();
+var addressInputG = $("#input").val().trim();
+var addressInput = addressInputG;
+
+//variable to store API from google geo
 var APIKeyG = "AIzaSyCuDsqDKUFb1QUNBy7-KughoBsoU7RkYRo";
+var geo;
 //queryUrl using address
 var queryURLG = "https://maps.googleapis.com/maps/api/geocode/json?key=" + APIKeyG + "&address=" + addressInputG;
 
@@ -22,17 +24,11 @@ var queryURLG = "https://maps.googleapis.com/maps/api/geocode/json?key=" + APIKe
 			$("#geo-error").text("Please reenter your zipcode")
 		//return formatted address
 		} else {
-			var location = response.results[0].geometry;
-			console.log(location);
-			alert("it's working")
-
+			geo = response.results[0];
+			console.log(geo);
 		}
-	 });
+	});
 
-
-
-//variable for whatever the user inputs as address
-var addressInput = "60202";
 //variable to store API from google civics
 var APIKeyP = "AIzaSyB0nuZo-jOlCHEFS6UB15CYoc0koH2nm8o";
 //queryUrl using address
@@ -50,18 +46,36 @@ function displayPoliInfo() {
 			console.log(queryURLP);
 			console.log(response);
 
-			//creating a variable tag to hold politician name
-			var poliName = response.officials[3].name;
+		//storing the data from AJAX request in the results variable
+		var results = response;
+		var slideIndex = 0;
+        Object.keys(results.offices).forEach(function(key,index){
+        
+	    office = results.offices[key];
+	    console.log(office);
+        for (i=0; i<office.officialIndices.length; i++)
+        {
+            var num = office.officialIndices[i];
+            console.log(results.officials[num]);
+            politician = new Politician(office,results.officials[num],num);
+            politicians.push(politician);
+            $(".single-item").append(politician.makeHTML());
 
-			//creating a paragraph tag with result of politician nam
-			var p = $("<p>").text("Your representative's name: " + poliName);
+            
+        }
+	    });
+	     $('.single-item').slick({
+               slidesToShow: 1,
+               slidesToScroll: 1,
+               slide: "div .row"
+            });
 
-		$("#poli-info-here").prepend(p);
-
-
-		})
-
-	
+	}, function(error){
+		console.log(JSON.parse(error.responseText))
+		;
+	});
 }
 
 displayPoliInfo();
+$("#input").text("");
+});

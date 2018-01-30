@@ -1,7 +1,47 @@
+
+img {
+	width: 20vw;
+}
+
+table {
+	position: relative;
+	width: 90%;
+}
+
 .jumbotron{
     margin-top: 40px;
-};
+}
 
-h1 {
-    font-family: "helvetical", "sans-serif", "georgia";
-};
+body{background-color: #993feeb0;}
+
+.btn{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    
+}
+
+h1, h3, p {
+    font-family: 'Kaushan Script', cursive;
+    text-align: center;
+}
+
+
+img {
+	width: 20vw;
+}
+
+table {
+	position: relative;
+	width: 90%;
+}
+
+tbody {
+    display: inline-block;
+    width: 40%;
+    font-size: 10px;
+    margin-left: 15%;
+    margin-top: -20%;
+}
+img {
+    width: 10vw;
+}
