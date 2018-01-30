@@ -7,11 +7,20 @@
     overflow: hidden;
 }
 
+
 .jumbotron{
     margin-top: 40px;
-};
+}
 
-h1 {
-    font-family: "helvetica", "sans-serif", "georgia";
-};
+body{background-color: #993feeb0;}
 
+.btn{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    
+}
+
+h1, h3, p {
+    font-family: 'Kaushan Script', cursive;
+    text-align: center;
+}

@@ -1,6 +1,4 @@
-
 var betterKeyWords = {"Democratic": "Democrat"};
-
 
 function Politician(office,official){
 
@@ -146,4 +144,3 @@ Politician.prototype.makeHTML = function(){
     result+="&markers=color:blue%7C"+formattedAddress+"&zoom=14&size=300x300&key=AIzaSyDNqjj1HtNHg4hB7cHnbE_ki-ejJnz9Vwo'></div></div>";
 		return result;
 };
-
