@@ -1,13 +1,11 @@
-
+//on click event for submit button
 $("button").on("click", function(event){
 
 event.preventDefault();
 var addressInputG = $("#input").val().trim();
 var addressInput = addressInputG;
-//variable to store API from google civics
 
 //variable to store API from google geo
-
 var APIKeyG = "AIzaSyCuDsqDKUFb1QUNBy7-KughoBsoU7RkYRo";
 var geo;
 //queryUrl using address
@@ -30,10 +28,6 @@ var queryURLG = "https://maps.googleapis.com/maps/api/geocode/json?key=" + APIKe
 			console.log(geo);
 		}
 	});
-
-
-
-//variable for whatever the user inputs as address
 
 //variable to store API from google civics
 var APIKeyP = "AIzaSyB0nuZo-jOlCHEFS6UB15CYoc0koH2nm8o";
@@ -85,4 +79,3 @@ function displayPoliInfo() {
 displayPoliInfo();
 $("#input").text("");
 });
-
