@@ -138,18 +138,18 @@ Object.keys(politician).forEach(function(key)
     }
 });
 // var number = this.getNumber();
- result+= "<div class='col-3-md'> <img src='"+image+"' alt = '"+name+"'>";
- result+= "<div class='col-6-md'><div><ul>";
+ result+= "<div class='col-3-md'> <img class='portrait' src='"+image+"' alt = '"+name+"'></div>";
+ result+= "<div class='col-6-md'><div class = 'row'><div class='col-6-md demo'><ul>";
  for (i=0;i<demo.length; i++)
  {
     result+= "<li>"+demo[i]+"</li>";
  }
- result += "</ul></div><div><ul>";
+ result += "</ul></div><div class='col-6-md contact'><ul>";
  for (i=0; i<contact.length; i++)
  {
     result+= "<li>"+contact[i]+"</li>";
  }
- result += "</ul></div></div>";
+ result += "</ul></div></div></div>";
 // result+= "</div> <div class='col-6-md'> <table class = 'table'><tr><th>Contact</th><th>District</th><th>Affiliation</th></tr>";
 // result+= "<tr><td>"+this.name+"</td><td>"+this.location+"</td><td>"+this.party+"</td></tr>";
 // result+= "<tr><td><a href='"+this.web+"'>"+this.web+"</a></td><td>"+this.address.line1+"</td><th>Role</th></tr>";
@@ -202,8 +202,8 @@ Object.keys(politician).forEach(function(key)
 	    formattedAddress = formattedAddress.slice(0,-1);
     }
 
-    result+="<img src='https://maps.googleapis.com/maps/api/staticmap?center="+formattedAddress;
-    result+="&markers=color:blue%7C"+formattedAddress+"&zoom=16&size=400x400&key=AIzaSyDNqjj1HtNHg4hB7cHnbE_ki-ejJnz9Vwo'></div></div>";
+    result+="<img class = 'map' src='https://maps.googleapis.com/maps/api/staticmap?center="+formattedAddress;
+    result+="&markers=color:blue%7C"+formattedAddress+"&zoom=14&size=300x300&key=AIzaSyDNqjj1HtNHg4hB7cHnbE_ki-ejJnz9Vwo'></div></div>";
 	console.log(result);
 	return result;
 

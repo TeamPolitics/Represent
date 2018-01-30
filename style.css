@@ -1,6 +1,10 @@
-
-img {
+.portrait {
 	width: 20vw;
+	height: 20vw;
+	-o-object-fit: cover;
+    object-fit: cover;
+    object-position: 50% 0%;
+    overflow: hidden;
 }
 
 table {
