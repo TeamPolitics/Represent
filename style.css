@@ -7,20 +7,94 @@
     overflow: hidden;
 }
 
-
-.jumbotron{
-    margin-top: 40px;
+.content-wrapper {
+    margin-left: 10%;
+    width: 80%;
 }
 
-body{background-color: #993feeb0;}
-
-.btn{
-    margin-top: 20px;
-    margin-bottom: 20px;
-    
-}
-
-h1, h3, p {
-    font-family: 'Kaushan Script', cursive;
+.jumbotron {
+    background-image: url("http://heritagecommunitycharter.com/heritage/media/images/backgrounds/light%20American-Flag-Christian-Stock-Images.jpg");
+    background-size: cover;
     text-align: center;
+    margin-top: 3%;
 }
+
+.display-4 {
+    color: #4c4c4c;
+    font-family: "Amatic SC";
+    font-size: 10vw;
+    font-weight: bold;
+}
+
+.headers {
+    font-family: "Amatic SC";
+    font-size: 4vw;
+}
+
+input {
+    font-family: "Times New Roman", "Helvetica";
+    font-style: italic;
+}
+
+.card-body {
+    background-color:#ffffff;
+    position: relative;
+}
+
+.positionTheme {
+    font-family: "Amatic SC";
+    font-size: 3vw;
+    margin-top: -3%;
+    font-style: italic;
+    font-weight: bold;
+    color:#4c4c4c;
+}
+
+.btn {
+    margin-top: 2%;
+}
+
+.card {
+    margin-top: 2%;
+}
+
+.card-body {
+    position: relative;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    font-size: 2vw;
+    font-family: "Helvetica";
+}
+
+.demo {
+    margin-top: -25%;
+    margin-left: 30%;
+    width: 50%;
+}
+
+.contact {
+    margin-top: -10%;
+    margin-left: 30%;
+    width: 50%;
+}
+
+.map {
+    width: 60%;
+    margin-top: 2%;
+    margin-left: 20%;
+}
+
+
+.slick-prev:before {
+    background-color: #4c4c4c;
+    size: 10vw;
+}
+.slick-next:before {
+    background-color: #4c4c4c;
+}
+
