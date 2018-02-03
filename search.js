@@ -55,6 +55,7 @@ if (!geo_error)//only pulls data if zip is valid
 	    $('.single-item').slick("unslick");
 	    slicked = false;
     }
+
 	$(".single-item").empty();//clears previously generated HTML
 	var results = response;
 	for (var i=0; i<results.offices.length; i++)
@@ -63,14 +64,14 @@ if (!geo_error)//only pulls data if zip is valid
 	    for (var j=0; j<office.officialIndices.length; j++)
         {
             var num = office.officialIndices[j];
-            var politician = new Politician(office,results.officials[num]);
+            var politician = new Politician(office,results.officials[num],num);
             $(".single-item").append(politician.makeHTML());
         }
 	}
 	$('.single-item').slick({
         slidesToShow: 1,
         slidesToScroll: 1,
-        slide: "div .row"
+        slide: "div .slide"
     });
 	slicked = true;
 	$("#input").val(" ");

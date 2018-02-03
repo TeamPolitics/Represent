@@ -1,9 +1,18 @@
 var betterKeyWords = {"Democratic": "Democrat"};
+var logos = {"Twitter": "<img src='./logos/twitter.png' alt = 'twitter'>",
+"Facebook": "<img src='./logos/facebook.png' alt = 'facebook'>",
+"GooglePlus": "<img src='./logos/googleplus.png' alt = 'googleplus'>",
+"YouTube": "<img src='./logos/youtube.png' alt = 'youtube'>" 
+};
 
-function Politician(office,official){
-
-	  this.name = official.name;
-	  
+function Politician(office,official,num){
+    console.log(official);
+    this.number = num;
+	this.name = official.name;
+	if (official.channels)
+    {
+        this.channels = official.channels;
+    }
     if (official.photoUrl)
     {	
 	      this.image = official.photoUrl;
@@ -53,15 +62,20 @@ function Politician(office,official){
 
 Politician.prototype.makeHTML = function(){
     //returns a string with the html for a specific politician, layout uses divs and lists
-    var result = "<div class='row'>";//each politician has their own row
+    var result = "<div class='slide'><div class='row no-gutters'>";//each politician has their own row
     var demo = [];
     var image = 0;
     var contact = [];
     var address = 0;
     var politician = this;
+    var channels = 0;
 
     Object.keys(politician).forEach(function(key)
     {
+        if (key == "channels")
+        {
+            channels = politician[key];
+        }
 
         if (key == "name")
         {
@@ -99,17 +113,17 @@ Politician.prototype.makeHTML = function(){
 
         if (key == "web")
         {
-    	      contact.push("<a href='"+politician[key]+"'target ='_blank'>"+politician[key]+"</a>");
+    	      contact.push("<a href='"+politician[key]+"'target ='_blank'>official website</a>");
         }
 
         if (key == "email")
         {
-    	      contact.push("<a href='mailto:"+politician[key]+"'>"+politician[key]+"</a>");
+    	      contact.push("<a href='mailto:"+politician[key]+"'>email</a>");
         }
     });
     
-    result+= "<div class='col-3-md'> <img class='portrait' src='"+image+"' alt = '"+name+"'></div>";
-    result+= "<div class='col-6-md'><div class = 'row'><div class='col-6-md demo'><ul>";
+    result+= "<div class='col-md text-center'> <img class='portrait' src='"+image+"' alt = '"+name+"'></div>";
+    result+= "<div class='col-md'><div class = 'row text-left'><div class='col-6-md demo'><ul>";
     
     for (i=0;i<demo.length; i++)
     {
@@ -118,13 +132,44 @@ Politician.prototype.makeHTML = function(){
     
     result += "</ul></div><div class='col-6-md contact'><ul>";
     
+     if (channels)
+    {
+        result += "<li><ul class='icons text-nowrap'>";
+        for (i=0; i<channels.length; i++)
+        {
+            console.log(channels[i]);
+            result+="<li><a href='";
+            switch(channels[i].type)
+            {
+                case "Facebook":
+                result += "https://www.facebook.com/";
+                break;
+
+                case "GooglePlus":
+                result += "https://plus.google.com/";
+                break;
+
+                case "YouTube":
+                result += "https://www.youtube.com/";
+                break;
+                
+                case "Twitter":
+                result += "https://twitter.com/";
+                break;
+
+            }
+            result += channels[i].id + "' target='_blank'>"+logos[channels[i].type]+"</a></li>"      
+        }
+        result += "</ul></li>";
+    }
+   
     for (i=0; i<contact.length; i++)
     {
         result+= "<li>"+contact[i]+"</li>";
     }
 
     result += "</ul></div></div></div>";
-    result+= "<div class='col-3-md'>";
+    result+= "<div class='col-md text-center'>";
     var address = this.address;
 	  var formattedAddress="";
 	
