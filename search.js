@@ -24,7 +24,8 @@ $.ajax({
 	.then(function(response) 
 {
 	//if response.status === zero_results push to div
-	if (response.status === "ZERO_RESULTS") 
+	console.log(response);
+	if (response.status === "404") 
 	{
 	    $('#geo-error').modal("show");
 	    geo_error = true;
@@ -78,6 +79,9 @@ if (!geo_error)//only pulls data if zip is valid
 	$("#input").val(" ");
 	}, function(error){
 		console.log(JSON.parse(error.responseText));
+		$('#geo-error').modal("show");
+	    geo_error = true;
+	    $("#input").val(" ");
 	});
     }
         $(".jumbotron").css("height","30px");
