@@ -123,14 +123,14 @@ Politician.prototype.makeHTML = function(){
     });
     
     result+= "<div class='col-md text-center'> <img class='portrait' src='"+image+"' alt = '"+name+"'></div>";
-    result+= "<div class='col-md'><div class = 'row text-left'><div class='col-6-md demo'><ul>";
+    result+= "<div class='col-md'><div class = 'row text-left'><div class='demo'><ul>";
     
     for (i=0;i<demo.length; i++)
     {
         result+= "<li>"+demo[i]+"</li>";
     }
     
-    result += "</ul></div><div class='col-6-md contact'><ul>";
+    result += "</ul></div></div><div class = 'row text-left'><div class='contact'><ul>";
     
      if (channels)
     {

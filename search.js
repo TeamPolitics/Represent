@@ -29,7 +29,7 @@ $.ajax({
 	    $('#geo-error').modal("show");
 	    geo_error = true;
 	} 
-});
+
 
 
 
@@ -96,5 +96,5 @@ if (!geo_error)//only pulls data if zip is valid
 	    $("#input").val(" ");
     }
 });
-
+});
 });
