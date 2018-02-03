@@ -66,6 +66,11 @@
     <script type="text/javascript" src="slick/slick.js"></script>
     <script src="index.js"></script>
     <script>
+        $("button").on("click", function(event){
+            event.preventDefault();
+            var addressInput = $("#input").val().trim();
+            search(addressInput);
+        });
 
     </script>
     

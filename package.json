@@ -1,0 +1,19 @@
+{
+  "name": "represent",
+  "version": "1.0.0",
+  "description": "enabling engagement with knowledge",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TeamPolitics/Represent.git"
+  },
+  "author": "TeamPolitics",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TeamPolitics/Represent/issues"
+  },
+  "homepage": "https://github.com/TeamPolitics/Represent#readme"
+}

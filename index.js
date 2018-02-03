@@ -148,10 +148,9 @@ Politician.prototype.makeHTML = function(){
 
 var slicked = false;
 
-$("button").on("click", function(event){
-event.preventDefault();
+function search(addressInput){
 var geo_error = false;
-var addressInput = $("#input").val().trim();
+
 //variable to store API from google civics
 if (addressInput.length < 5 || isNaN(addressInput))
 {
@@ -232,5 +231,6 @@ if (!geo_error)//only pulls data if zip is valid
     {
         $("#input").val(" ");
     }
-});
+}
+
 
