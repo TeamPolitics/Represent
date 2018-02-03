@@ -14,16 +14,20 @@
     margin-top: 3%;
 }
 
-.display-4, .mini-title {
+.display-4 {
     color: #4c4c4c;
     font-family: "Amatic SC";
-    font-size: 40px;
+    font-size: 10vw;
     font-weight: bold;
 }
 
 .mini-title {
     position: relative;
-    top: -30px;
+    top: -7vw;
+    color: #4c4c4c;
+    font-family: "Amatic SC";
+    font-weight: bold;
+    font-size: 8vw;
 }
 
 .headers {
