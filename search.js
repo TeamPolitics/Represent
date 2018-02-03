@@ -80,6 +80,15 @@ if (!geo_error)//only pulls data if zip is valid
 		console.log(JSON.parse(error.responseText));
 	});
     }
+        $(".jumbotron").css("height","30px");
+        $(".jumbotron").html("<span class='mini-title'>Represent!</span>");
+        $("input").css("height","30px");
+        $("input").css("top","-20px");
+        $("input").css("position","relative");
+        $(".btn").css("height","30px");
+        $(".btn").css("top","-20px");
+        $(".btn").css("position","relative");
+        $(".btn").css("line-height","10px");
         displayPoliInfo();
     }
     else
