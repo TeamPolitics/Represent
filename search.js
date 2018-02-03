@@ -1,3 +1,4 @@
+$(document).ready(function(){
 var slicked = false;
 
 $("button").on("click", function(event){
@@ -7,7 +8,7 @@ var addressInput = $("#input").val().trim();
 //variable to store API from google civics
 if (addressInput.length < 5 || isNaN(addressInput))
 {
-    $("#geo-error").text("Please enter a valid zipcode")
+    $('#geo-error').modal("show");
 	geo_error = true;	
 }
 //variable to store API from google geo
@@ -25,7 +26,7 @@ $.ajax({
 	//if response.status === zero_results push to div
 	if (response.status === "ZERO_RESULTS") 
 	{
-	    $("#geo-error").text("Please enter a valid zipcode")
+	    $('#geo-error').modal("show");
 	    geo_error = true;
 	} 
 });
@@ -87,3 +88,4 @@ if (!geo_error)//only pulls data if zip is valid
     }
 });
 
+});

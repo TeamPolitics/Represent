@@ -1,10 +1,10 @@
-.portrait {
+.portrait, .map {
 	height: 300px;
-	-o-object-fit: cover;
+    -o-object-fit: cover;
     object-fit: cover;
     object-position: 50% 0%;
     overflow: hidden;
-    
+    max-width: 95%;
 }
 
 .content-wrapper {
@@ -91,11 +91,9 @@ li {
     width: 100%;
 }
 */
-.contact, .map, .demo, .portrait{
-    /*margin-top: -10%;
-    margin-left: 30%;*/
-    max-width: 100%;
-    width: 90%;
+.contact, .demo{
+    margin-right: 15px;
+    
 }
 
 /*.map {
